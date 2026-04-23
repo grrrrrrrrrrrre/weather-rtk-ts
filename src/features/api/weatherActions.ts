@@ -9,7 +9,9 @@ export const weatherApi = createApi({
         getWeatherByCity: builder.query<WeatherInfoResponse, string>({
             query: (city) => `?q=${city}&appid=${api_key}&units=metric`
         })
-    })
+    }),
+    keepUnusedDataFor: 10,
+    refetchOnFocus: true
 })
 
 export const {useGetWeatherByCityQuery} = weatherApi
